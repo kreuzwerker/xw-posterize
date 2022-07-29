@@ -1,14 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<!-- Toolbar -->
-<mat-toolbar>
+<mat-toolbar color="accent">
   <mat-toolbar-row>
     <img
       height="100%"
@@ -22,11 +12,28 @@
     </a>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container>
+<mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened>
-    <app-preset-list></app-preset-list>
+    <app-preset-list (selectedPreset)="posterize($event)"></app-preset-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    This is the main content
+    <div *ngIf="!isOriginalAvailable" id="intro-container">
+      <input type="file" class="file-input"
+             (change)="fileClicked($event)" #fileUpload>
+      <div appFileDrop class="drop-area" (droppedFile)="fileDropped($event)">
+        <h2>Drag a picture here</h2>
+        {{fileName || "No file uploaded yet."}}
+        <div class="button-container">
+          <h3>or press the button</h3>
+          <button mat-mini-fab color="primary" class="upload-btn"
+                  (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <app-image-display id="org" *ngIf="isOriginalAvailable" source="{{orgImgagedata}}"></app-image-display>
+    <app-image-display id="poster" *ngIf="isPosterAvailable" source="{{posterImgagedata}}"></app-image-display>
   </mat-sidenav-content>
 </mat-sidenav-container>
+

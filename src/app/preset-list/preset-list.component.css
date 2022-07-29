@@ -1,0 +1,11 @@
+:host .mat-drawer-container {
+  xdisplay: unset;
+  background: lime;
+  font-style: italic;
+}
+
+.color-sample {
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+}
