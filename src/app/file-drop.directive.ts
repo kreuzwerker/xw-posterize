@@ -15,7 +15,6 @@ export class FileDropDirective {
   // dragover needs to be preventDefault()
   @HostListener('dragover', ['$event'])
   dragEntered(ev: Event) {
-    console.log("the enter event:", ev);
     ev.preventDefault();
     ev.stopPropagation();
     this.mouseOver = true;
@@ -32,9 +31,7 @@ export class FileDropDirective {
     ev.preventDefault();
     ev.stopPropagation();
     this.mouseOver = false;
-    console.log("the drop event:", ev);
     const file : File = ev.dataTransfer!.files[0];
-    //TODO: check mime type
     this.file = file;
     this.droppedFile.emit(file);
 

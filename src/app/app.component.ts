@@ -60,10 +60,7 @@ export class AppComponent implements OnInit {
           const blob = new Blob([rawData.buffer], {type: this.orgMimeType});
           this.posterReader.readAsDataURL(blob)
         })
-
-        console.log("got poster", poster);
     })
-
   }
 
 
