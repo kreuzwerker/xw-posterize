@@ -5,7 +5,7 @@
       alt="Angular Logo"
       src="/assets/xw_logo.png"
     />
-    <span>{{ title }} app is running!</span>
+    <span>Poster It The xw Style!</span>
     <div class="spacer"></div>
     <a href="https://gitlab.kreuzwerker.de">
       <img height="40" src="/assets/gitlab.png" alt="view gitlab repository">
@@ -14,15 +14,12 @@
 </mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened>
-    <app-preset-list (selectedPreset)="posterize($event)"></app-preset-list>
+    <app-preset-list (selectedPreset)="posterize($event)" [enabled]="isOriginalAvailable"></app-preset-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div *ngIf="!isOriginalAvailable" id="intro-container">
-      <input type="file" class="file-input"
-             (change)="fileClicked($event)" #fileUpload>
       <div appFileDrop class="drop-area" (droppedFile)="fileDropped($event)">
         <h2>Drag a picture here</h2>
-        {{fileName || "No file uploaded yet."}}
         <div class="button-container">
           <h3>or press the button</h3>
           <button mat-mini-fab color="primary" class="upload-btn"
@@ -36,4 +33,5 @@
     <app-image-display id="poster" *ngIf="isPosterAvailable" source="{{posterImgagedata}}"></app-image-display>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
+<input type="file" class="file-input" accept="image/jpeg, image/png"
+       (change)="fileClicked($event)" #fileUpload>

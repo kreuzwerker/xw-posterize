@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {Preset} from '../Presets';
 import hexRgb, {RgbaObject} from 'hex-rgb';
@@ -23,9 +23,8 @@ const presets: Preset[] = [
 })
 export class PresetListComponent implements OnInit {
   items: Preset[] = presets;
-  @Output()
-  selectedPreset1: Preset | null = null;
-
+  @Input()
+  enabled: boolean = false;
   @Output()
   selectedPreset: EventEmitter<Preset> = new EventEmitter<Preset>();
 

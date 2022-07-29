@@ -1,6 +1,6 @@
 <mat-label>Color schemes</mat-label>
 
-<mat-selection-list multiple="false">
+<mat-selection-list multiple="false" disabled="{{!enabled}}">
   <mat-list-option *ngFor="let item of items" (click)="chooseMe(item)">
     <span matLine>{{item.name}}</span>
     <span matLine>
