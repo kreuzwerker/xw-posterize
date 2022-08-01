@@ -18,7 +18,8 @@ export class AppComponent implements OnInit {
     this.posterReader.onloadend = () => {
       this.posterImgagedata = this.posterReader.result;
       this.isPosterAvailable = true;
-    }
+      this.isProcessing = false;
+    };
   }
 
 
@@ -29,8 +30,10 @@ export class AppComponent implements OnInit {
   //these are DataURLs!
   orgImgagedata: string | ArrayBuffer | null | undefined;
   posterImgagedata: string | ArrayBuffer | null | undefined;
+
   isOriginalAvailable: boolean = false;
   isPosterAvailable: boolean = false;
+  isProcessing: boolean = false;
 
   //TODO: consider to make a service from these:
   private fileReader = new FileReader();
@@ -54,13 +57,14 @@ export class AppComponent implements OnInit {
 
   posterize(preset: Preset) {
     this.isPosterAvailable = false;
-    getPixels(this.orgImgagedata as string, this.orgMimeType ).then((pixels) => {
-        const poster = posterize(pixels, preset.colors);
-        savePixels(poster, this.orgMimeType).then(rawData => {
-          const blob = new Blob([rawData.buffer], {type: this.orgMimeType});
-          this.posterReader.readAsDataURL(blob)
-        })
-    })
+    this.isProcessing = true;
+    getPixels(this.orgImgagedata as string, this.orgMimeType).then((pixels) => {
+      const poster = posterize(pixels, preset.colors);
+      savePixels(poster, this.orgMimeType).then(rawData => {
+        const blob = new Blob([rawData.buffer], {type: this.orgMimeType});
+        this.posterReader.readAsDataURL(blob);
+      });
+    });
   }
 
 

@@ -31,6 +31,8 @@
     </div>
     <app-image-display id="original" *ngIf="isOriginalAvailable" source="{{orgImgagedata}}"></app-image-display>
     <app-image-display id="poster" *ngIf="isPosterAvailable" source="{{posterImgagedata}}"></app-image-display>
+    <mat-progress-spinner *ngIf="isProcessing" mode="indeterminate" color="accent" strokeWidth="200" diameter="200"></mat-progress-spinner>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 <input type="file" class="file-input" accept="image/jpeg, image/png"

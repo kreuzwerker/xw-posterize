@@ -1,39 +1,18 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import {Preset} from '../Presets';
-import hexRgb, {RgbaObject} from 'hex-rgb';
+import {RgbaObject} from 'hex-rgb';
+import {Gradient} from '../Gradient';
 
-//TODO add more colors
-//TODO: consider to make this dynamic using https://github.com/assuming/gradient-color or something
 const presets: Preset[] = [
-  new Preset('xw', [
-  hexRgb('#C80531'),
-  hexRgb('#C71037'),
-  hexRgb('#C61B3D'),
-  hexRgb('#C52743'),
-  hexRgb('#C3324A'),
-  hexRgb('#C23D50'),
-  hexRgb('#C14856'),
-  hexRgb('#C0535C'),
-  hexRgb('#BF5F62'),
-  hexRgb('#BE6A68'),
-  hexRgb('#BD756E'),
-  hexRgb('#BC8074'),
-  hexRgb('#BA8B7B'),
-  hexRgb('#B99781'),
-  hexRgb('#B8A287'),
-  hexRgb('#B8A287'),
-  hexRgb('#B7AD8D')
-]),
-
-  new Preset('1',[hexRgb('#b9172e') , hexRgb('#b7ad8d')]),
-  new Preset('2',[hexRgb('#424242') , hexRgb('#b7ad8d')]),
-  new Preset('3',[hexRgb('#b9172e') , hexRgb('#c4df9b')]),
-  new Preset('4',[hexRgb('#b76313') , hexRgb('#c4df9b')]),
-  new Preset('5',[hexRgb('#8e0e5a') , hexRgb('#b7ad8d')]),
-  new Preset('6',[hexRgb('#bd3b88') , hexRgb('#e9903b')]),
-  new Preset('7',[hexRgb('#424242') , hexRgb('#e9903b')]),
-  new Preset('8',[hexRgb('#424242') , hexRgb('#b9172e')]),
+  new Preset('1', new Gradient('#b9172e','#b7ad8d', 16).colors),
+  new Preset('2', new Gradient('#424242','#b7ad8d', 16).colors),
+  new Preset('3', new Gradient('#b9172e','#c4df9b', 16).colors),
+  new Preset('4', new Gradient('#b76313','#c4df9b', 16).colors),
+  new Preset('5', new Gradient('#8e0e5a','#b7ad8d', 16).colors),
+  new Preset('6', new Gradient('#bd3b88','#e9903b', 16).colors),
+  new Preset('7', new Gradient('#424242','#e9903b', 16).colors),
+  new Preset('8', new Gradient('#424242','#b9172e', 16).colors),
 ];
 
 @Component({

@@ -16,7 +16,7 @@
             "allowedCommonJsDependencies": [
               "posterize"
             ],
-            "outputPath": "dist/angular-start",
+            "outputPath": "dist/posterize",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

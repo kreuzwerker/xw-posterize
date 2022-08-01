@@ -16,6 +16,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {FileDropDirective} from './file-drop.directive';
 import {ImageDisplayComponent} from './image-display/image-display.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     DragDropModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
