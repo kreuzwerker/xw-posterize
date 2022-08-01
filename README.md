@@ -16,13 +16,19 @@ Run
 % npm run start
 ```
 and point your web browser to  [http://localhost:4200/](`http://localhost:4200/`)
+
 ![](doc/startScreen.png)
-<img src="doc/startScreen.png" width="400">
-• drag an image to blue area or use the button to upload a file:
+
+• drag an image to the blue area or use the button to upload a file:
+
 ![](doc/original_uploaded.png)
+
 • now you can apply one of the provided presets on the left:
-![](doc/preset applied.png)
+
+![](doc/preset_applied.png)
+
 • save this image by right-clicking on it:
+
 ![](doc/save_poster.png)
 
 The image will be in same format and size as the original.
