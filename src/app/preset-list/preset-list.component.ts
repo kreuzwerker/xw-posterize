@@ -4,8 +4,28 @@ import {Preset} from '../Presets';
 import hexRgb, {RgbaObject} from 'hex-rgb';
 
 //TODO add more colors
+//TODO: consider to make this dynamic using https://github.com/assuming/gradient-color or something
 const presets: Preset[] = [
-  new Preset('xw', [hexRgb('#C80531'), hexRgb('#B7AD8D')]),
+  new Preset('xw', [
+  hexRgb('#C80531'),
+  hexRgb('#C71037'),
+  hexRgb('#C61B3D'),
+  hexRgb('#C52743'),
+  hexRgb('#C3324A'),
+  hexRgb('#C23D50'),
+  hexRgb('#C14856'),
+  hexRgb('#C0535C'),
+  hexRgb('#BF5F62'),
+  hexRgb('#BE6A68'),
+  hexRgb('#BD756E'),
+  hexRgb('#BC8074'),
+  hexRgb('#BA8B7B'),
+  hexRgb('#B99781'),
+  hexRgb('#B8A287'),
+  hexRgb('#B8A287'),
+  hexRgb('#B7AD8D')
+]),
+
   new Preset('1',[hexRgb('#b9172e') , hexRgb('#b7ad8d')]),
   new Preset('2',[hexRgb('#424242') , hexRgb('#b7ad8d')]),
   new Preset('3',[hexRgb('#b9172e') , hexRgb('#c4df9b')]),
