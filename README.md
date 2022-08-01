@@ -17,6 +17,7 @@ Run
 ```
 and point your web browser to  [http://localhost:4200/](`http://localhost:4200/`)
 ![](doc/startScreen.png)
+<img src="doc/startScreen.png" width="400">
 • drag an image to blue area or use the button to upload a file:
 ![](doc/original_uploaded.png)
 • now you can apply one of the provided presets on the left:
