@@ -1,12 +1,22 @@
 import {RgbaObject} from 'hex-rgb';
+import {Gradient} from './Gradient';
 
 
 
-export class Preset {
+export interface Preset {
   name: string;
   colors: RgbaObject[]
-  constructor(name: string, colors: RgbaObject[]) {
+
+}
+
+export class GradientPreset implements Preset {
+  name: string;
+  private gradient:  Gradient
+  get colors(): RgbaObject[] {
+    return this.gradient.colors;
+  }
+  constructor(name: string, gradient: Gradient) {
     this.name = name;
-    this.colors = colors;
+    this.gradient = gradient;
   }
 }
