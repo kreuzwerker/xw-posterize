@@ -1,3 +1,7 @@
+# Archived
+This repo has been archived! It moved to the [kreuzwerker gitlab](https://gitlab.kreuzwerker.de/engineering/xw-posterize).
+If you liked the function it provided you can still access it from [here](https://engineering.hosted-by-xw.de/xw-posterize). Enjoy!
+
 # Posterize
 This is a simple tool to transform an image in the kreuzwerker style:
 
