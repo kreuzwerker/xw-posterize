@@ -39,7 +39,7 @@ pages:
   stage: deploy
   needs: [build]
   rules:
-    - if $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - ls -alF
     - mv dist/posterize public
