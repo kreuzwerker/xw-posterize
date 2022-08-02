@@ -26,22 +26,24 @@ test:
   script:
     - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
-build:
+build-pages:
   stage: build
   extends: .install
   artifacts:
     paths:
       - dist/posterize
   script:
-    - npm run build
+    - npm run build -- --base-href /$CI_PROJECT_NAME/
 
 pages:
   stage: deploy
-  needs: [build]
+  needs: [build-pages]
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - ls -alF
+    - echo $CI_PAGES_URL
+    - echo $CI_PROJECT_NAME
     - mv dist/posterize public
   artifacts:
     paths:
