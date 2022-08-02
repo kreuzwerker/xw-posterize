@@ -17,4 +17,4 @@ default:
 test:
   stage: test
   script:
-    ‐ 'npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI'
+    ‐ "npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI"
