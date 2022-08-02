@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-start'`, () => {
+  it(`should have as title 'xw-posterize'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('posterize');
+    expect(app.title).toEqual('xw-posterize');
   });
 
   xit('should render title', () => {

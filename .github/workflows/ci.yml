@@ -11,10 +11,14 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
-      - name: Install and Build 🔧
-        run: |
-          npm ci
-          npm run build -- --base-href /${{ github.event.repository.name }}/
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Build 🔧
+        run: npm run build -- --base-href /${{ github.event.repository.name }}/
 
       - name: Deploy to github pages🚀
         uses: JamesIves/github-pages-deploy-action@v4

@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  title = 'posterize';
+  title = 'xw-posterize';
   orgFileName: string = '';
   orgMimeType: string = '';
 
