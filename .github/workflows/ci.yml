@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # DO NOT LISTEN TO BRANCH gh-pages -> will lead to cylce :-) 
+      - main # DO NOT LISTEN TO BRANCH gh-pages -> will lead to cylce :-)
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,11 +14,10 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm ci
-          npm run build
+          npm run build -- --base-href /${{ github.event.repository.name }}/
 
-      - name: Deploy 🚀
+      - name: Deploy to github pages🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist/posterize
-          
