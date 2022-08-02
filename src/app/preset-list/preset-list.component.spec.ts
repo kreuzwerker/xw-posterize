@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { PresetListComponent } from './preset-list.component';
 
@@ -8,7 +10,8 @@ describe('PresetListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PresetListComponent ]
+      declarations: [ PresetListComponent ],
+      imports:[MatListModule, MatFormFieldModule]
     })
     .compileComponents();
 
