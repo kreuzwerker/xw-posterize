@@ -17,6 +17,14 @@ jobs:
       - name: Test
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Karma Tests
+          path: test-restults/karma-junit.xml
+          reporter: java-junit
+
       - name: Build 🔧
         run: npm run build -- --base-href /${{ github.event.repository.name }}/
 
