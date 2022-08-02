@@ -22,7 +22,7 @@ jobs:
         if: always()
         with:
           name: Karma Tests
-          path: test-restults/karma-junit.xml
+          path: test-results/karma-junit.xml
           reporter: java-junit
 
       - name: Build 🔧
