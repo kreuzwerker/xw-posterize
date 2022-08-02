@@ -3,6 +3,8 @@ stages:
   - build
   - deploy
 default:
+  tags:
+    - node
   cache:
     key: $CI_COMMIT_REF_SLUG
     paths:
