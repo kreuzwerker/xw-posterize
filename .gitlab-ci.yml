@@ -24,12 +24,17 @@ test:
     - export CHROME_BIN=/usr/bin/google-chrome
     - !reference [.install, before_script]
   script:
-    - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI --reporters junit
+  artifacts:
+    when: always
+    reports:
+      junit: test-results/karma-junit.xml
 
-build-pages:
+build4pages:
   stage: build
   extends: .install
   artifacts:
+    expire_in: 1 day
     paths:
       - dist/posterize
   script:
@@ -37,13 +42,10 @@ build-pages:
 
 pages:
   stage: deploy
-  needs: [build-pages]
+  needs: [build4pages]
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
-    - ls -alF
-    - echo $CI_PAGES_URL
-    - echo $CI_PROJECT_NAME
     - mv dist/posterize public
   artifacts:
     paths:
