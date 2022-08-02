@@ -1,0 +1,17 @@
+stages:
+  - test
+  - build
+  - deploy
+default:
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+
+
+test:
+  stage: test
+  script:
+    ‐ npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
