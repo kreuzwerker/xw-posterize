@@ -10,8 +10,6 @@ default:
     key: $CI_COMMIT_REF_SLUG
     paths:
       - .npm/
-  before_script:
-    - npm ci --cache .npm --prefer-offline
 
 .install:
   before_script:
@@ -27,3 +25,24 @@ test:
     - !reference [.install, before_script]
   script:
     - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+build:
+  stage: build
+  extends: .install
+  artifacts:
+    paths:
+      - dist/posterize
+  script:
+    - npm run build
+
+pages:
+  stage: deploy
+  needs: [build]
+  rules:
+    - if $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - ls -alF
+    - mv dist/posterize public
+  artifacts:
+    paths:
+      - public
